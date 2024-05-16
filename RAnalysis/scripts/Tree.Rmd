@@ -1,0 +1,82 @@
+---
+title: "Untitled"
+author: "HM Putnam"
+date: "2024-05-16"
+output: html_document
+---
+
+```{r}
+install.packages("ape")
+install.packages("phangorn")
+install.packages("seqinr")
+library(ape)
+library(phangorn)
+library(seqinr)
+library(tidyverse)
+BiocManager::install("ggtree", force=T, type = 'source')
+library(ggtree)
+```
+
+```{r}
+Poc.Seq <- read.dna("Sanger/2024_Spawning_Poc_mtORF_alignment.fasta", format="fasta")
+Poc_phyDat <- phyDat(Poc.Seq, type = "DNA", levels = NULL)
+
+#mt <- modelTest(Poc_phyDat)
+#print(mt)
+#best_model <- as.pml(mt)
+Poc_dna_dist <- dist.ml(Poc_phyDat, model="JC69")
+
+hc <- hclust(Poc_dna_dist, "ward.D")
+
+clus <- cutree(hc,k=5)
+g <- split(names(clus), clus)
+
+p <- ggtree(hc,size=1) + 
+   geom_tiplab(angle=0, hjust=0, offset=.03, show.legend=F, size=3, align=TRUE)+
+   geom_treescale(x=1, y=1)
+
+pdf("output/Poctree.pdf", height = 12, width = 8)
+groupOTU(p, g, group_name='Cluster') + aes(color=Cluster) + 
+  scale_color_manual(name="Species ID",
+                     breaks=c(1,2,3,4,5,6), 
+                     labels=c("P. tuahiniensis", "P. verrucosa", "P. cf. effusa", "P. meandrina", "P. meandrina", "NA"),
+                     values=c("#D55E00","#E69F00", "#009E73", "#CC79A7", "#0072B2", "gray"))+
+  theme(legend.position ="bottom")
+dev.off()
+```
+
+
+```{r}
+
+Poc_NJ <- NJ(Poc_dna_dist)
+
+# pdf("output/Poc_mtORF_tree.pdf", height = 10, width = 8)
+#  ggtree(Poc_NJ, ignore.negative.edge=TRUE) + 
+#    geom_tiplab(size=1) +
+#    geom_text(aes(label=node), hjust=-.3, size=3)+
+#    geom_hilight(node=140, fill="gold",  type="rect") + 
+#    geom_hilight(node=1, fill="orange") + 
+#    geom_hilight(node=145, fill="blue") + 
+#    geom_hilight(node=169, fill="green") 
+#  dev.off()
+
+hc <- hclust(Poc_NJ, "ward.D")
+
+clus <- cutree(hc,k=5)
+g <- split(names(clus), clus)
+
+p <- ggtree(hc,size=1) + 
+   #theme_dendrogram() +
+   geom_tiplab(angle=0, hjust=0, offset=.03, show.legend=F, size=3, align=TRUE)+
+   geom_treescale(x=1, y=1)
+
+pdf("output/Poctree.pdf", height = 12, width = 8)
+groupOTU(p, g, group_name='Cluster') + aes(color=Cluster) + 
+  scale_color_manual(name="Species ID",
+                     breaks=c(1,2,3,4,5,6), 
+                     labels=c("P. tuahiniensis", "P. verrucosa", "P. cf. effusa", "P. meandrina", "P. meandrina", "NA"),
+                     values=c("orange","gold", "green", "purple", "blue", "gray"))
+dev.off()
+
+```
+
