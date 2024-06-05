@@ -6,19 +6,19 @@ output: html_document
 ---
 
 ```{r}
-install.packages("ape")
-install.packages("phangorn")
-install.packages("seqinr")
+#install.packages("ape")
+#install.packages("phangorn")
+#install.packages("seqinr")
 library(ape)
 library(phangorn)
 library(seqinr)
 library(tidyverse)
-BiocManager::install("ggtree", force=T, type = 'source')
+#BiocManager::install("ggtree", force=T, type = 'source')
 library(ggtree)
 ```
 
 ```{r}
-Poc.Seq <- read.dna("Sanger/2024_Spawning_Poc_mtORF_alignment.fasta", format="fasta")
+Poc.Seq <- read.dna("Sanger/20240605_Spawning_Poc_mtORF_alignment.fasta", format="fasta")
 Poc_phyDat <- phyDat(Poc.Seq, type = "DNA", levels = NULL)
 
 #mt <- modelTest(Poc_phyDat)

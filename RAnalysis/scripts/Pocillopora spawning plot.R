@@ -35,18 +35,19 @@ d <- dat %>% filter(Species!="") %>%
   summarise(n=n()) %>% 
   mutate(freq=n/sum(n))
 
-d %>% ggplot(aes(Day_before_after_Moon, freq, fill = Species, label = n)) +
+spawning.freq <- d %>% ggplot(aes(Day_before_after_Moon, freq, fill = Species)) +
   geom_col()+
-  geom_text()+
+  #geom_text()+
   scale_fill_manual(values = c("#D55E00","#0072B2",
                                         "#E69F00","#009E73"))+
-  facet_wrap(vars(Moon, Year, Month), nrow = 1)+
+  facet_wrap(vars(Year, Month, Moon), nrow = 1)+
   theme_bw()+
-  ylab("Proportion of colonies sampled each day")+
+  ylab("Proportion of colonies sampled")+
   xlab("Day after Moon")
 
+spawning.freq 
 
-
+ggsave("output/spawning.freq.jpg",spawning.freq, width=8, height=3  )
 
 # # Prepare plotting parameters
 # lwds <- 20
