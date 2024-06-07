@@ -18,7 +18,7 @@ library(ggtree)
 ```
 
 ```{r}
-Poc.Seq <- read.dna("Sanger/20240605_Spawning_Poc_mtORF_alignment.fasta", format="fasta")
+Poc.Seq <- read.dna("Sanger/20240607_Spawning_Poc_mtORF_alignment.fasta", format="fasta")
 Poc_phyDat <- phyDat(Poc.Seq, type = "DNA", levels = NULL)
 
 #mt <- modelTest(Poc_phyDat)
@@ -38,9 +38,10 @@ p <- ggtree(hc,size=1) +
 pdf("output/Poctree.pdf", height = 12, width = 8)
 groupOTU(p, g, group_name='Cluster') + aes(color=Cluster) + 
   scale_color_manual(name="Species ID",
-                     breaks=c(1,2,3,4,5,6), 
-                     labels=c("P. tuahiniensis", "P. verrucosa", "P. cf. effusa", "P. meandrina", "P. meandrina", "NA"),
-                     values=c("#D55E00","#E69F00", "#009E73", "#CC79A7", "#0072B2", "gray"))+
+                     breaks=c(3, 5, 4, 2, 1,6),
+                     #breaks=c(1,2,3,4,5,6), 
+                     labels=c("P. tuahiniensis", "P. verrucosa","P. meandrina","P. meandrina","P. cf. effusa","P. acuta"),
+                     values=c("#D55E00","#E69F00","#0072B2", "#CC79A7","#009E73", "red"))+
   theme(legend.position ="bottom")
 dev.off()
 ```
