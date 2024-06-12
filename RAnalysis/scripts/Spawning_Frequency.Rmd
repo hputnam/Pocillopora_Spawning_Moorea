@@ -1,0 +1,80 @@
+---
+title: "Spawning_Frequency"
+author: "HM Putnam SC Burgess"
+date: "2024-06-12"
+output: html_document
+---
+
+Read in Libraries
+```{r setup, include=FALSE}
+library('dplyr')
+library('ggplot2')
+
+```
+
+Set the species colors
+```{r }
+# set the colors for plotting
+cols <- cbind.data.frame(Species = factor(c("P. tuahiniensis",
+                                            "P. meandrina",
+                                            "P. verrucosa",
+                                            #"P. grandis",
+                                            "P. cf. effusa"
+                                            #,"P. acuta"
+                                            )),
+                         Color = c("#D55E00",
+                                   "#0072B2",
+                                   "#E69F00",
+                                  # "#56B4E9",
+                                   "#009E73"
+                                  #,"#e63946"
+                                  ))
+```
+
+
+Read in and Order the data and calculate frequency
+```{r}
+# Read in the data (check working directory)
+dat <- read.csv("data/Pocillopora_spawning_IDs.csv")
+
+# Make dat$Species be the same order as col$Species, for easier plotting
+dat$Species <- factor(dat$Species,levels=cols$Species)
+
+# Calculate the number and frequency of samples for each species on each day
+d <- dat %>% filter(Species!="") %>% 
+  group_by(Moon, Year, Month, Date_spawned_YYYYMMDD,Day_before_after_Moon,Species) %>% 
+  summarise(n=n()) %>% 
+  mutate(freq=n/sum(n))
+
+# Define the desired order for the months
+month_levels <- c("October", "November", "December")
+
+# Convert the Month column to a factor with the specified levels
+d <- d %>%
+  mutate(Month = factor(Month, levels = month_levels))
+
+
+```
+
+
+```{r}
+
+total_samples <- d %>%
+  group_by(Year, Month, Moon, Day_before_after_Moon) %>%
+  summarize(total_n = sum(n))
+
+spawning_freq <- d %>%
+  ggplot(aes(x = Day_before_after_Moon, y = freq, fill = Species)) +
+  geom_col() +
+  # Add total sample size labels
+  geom_text(data = total_samples, aes(x = Day_before_after_Moon, y = 1, label = total_n), 
+            vjust = -0.5, size = 3, inherit.aes = FALSE) +
+  scale_fill_manual(values = c("#D55E00", "#0072B2", "#E69F00", "#009E73")) +
+  facet_wrap(vars(Year, Month, Moon), nrow = 1) +
+  theme_bw() +
+  ylab("Proportion of colonies sampled") +
+  xlab("Day after Moon")
+
+spawning_freq
+
+```
