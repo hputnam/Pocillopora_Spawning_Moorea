@@ -77,4 +77,7 @@ spawning_freq <- d %>%
 
 spawning_freq
 
+ggsave("output/Fig5_spawning.freq.jpg",spawning_freq, width=8, height=5  )
+ggsave("output/Fig5_spawning.freq.pdf",spawning_freq, width=8, height=5  )
+
 ```
