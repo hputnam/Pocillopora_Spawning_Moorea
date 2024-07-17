@@ -1,5 +1,5 @@
-__Daytime broadcast spawning in cryptic _Pocillopora_ species at Mo'orea, French Polynesia
-Harnay P1, Turner AM2, Burgess SC2, and Putnam HM3*__   
+__Daytime broadcast spawning in cryptic _Pocillopora_ species at Mo'orea, French Polynesia__   
+Harnay P1, Turner AM2, Burgess SC2, and Putnam HM3*   
 
 1 University of Haifa, The Leon H. Charney School of Marine Sciences, Department of Marine Biology, Haifa Israel
 2 Florida State University, Department of Biological Science, 319 Stadium Drive, Tallahassee, Florida 32306-4296 USA
