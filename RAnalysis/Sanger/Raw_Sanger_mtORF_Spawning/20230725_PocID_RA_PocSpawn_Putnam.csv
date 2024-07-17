@@ -1,0 +1,69 @@
+,,,A.,B.,C.,D.,F.,G.,,,,,
+Sample IDa,Well  (GSC use only),Template Type,Template Size (bases),Template Stock Conc. (ng/µl),PCR template:ng needed = ((A / 100) x 1.25) x 2,PCR template: Volume = (C / B) µl,Volume PCR-H20 needed (10 minus D),Volume primer needed 3.2µM Stock,Template Vol (µL),H20 Vol (µl),Primer Added,Sample.Name,Info
+HP1,,PCR,1000,31.1,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-152,HP1|POC-152|Forward Primer FatP6.1
+HP2,,PCR,1000,33.8,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-155,HP2|POC-155|Forward Primer FatP6.1
+HP3,,PCR,1000,30.8,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-157,HP3|POC-157|Forward Primer FatP6.1
+HP4,,PCR,1000,29.9,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-160,HP4|POC-160|Forward Primer FatP6.1
+HP5,,PCR,1000,38.1,12.5,0.3,9.7,2,2,8,Forward Primer FatP6.1,POC-163,HP5|POC-163|Forward Primer FatP6.1
+HP6,,PCR,1000,30.9,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-164,HP6|POC-164|Forward Primer FatP6.1
+HP7,,PCR,1000,30.7,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-170,HP7|POC-170|Forward Primer FatP6.1
+HP8,,PCR,1000,26.4,12.5,0.5,9.5,2,2,8,Forward Primer FatP6.1,POC-171,HP8|POC-171|Forward Primer FatP6.1
+HP9,,PCR,1000,30.8,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-172,HP9|POC-172|Forward Primer FatP6.1
+HP10,,PCR,1000,35.8,12.5,0.3,9.7,2,2,8,Forward Primer FatP6.1,POC-173,HP10|POC-173|Forward Primer FatP6.1
+HP11,,PCR,1000,31.1,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-182,HP11|POC-182|Forward Primer FatP6.1
+HP12,,PCR,1000,31.2,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-131,HP12|POC-131|Forward Primer FatP6.1
+HP13,,PCR,1000,35.5,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-132,HP13|POC-132|Forward Primer FatP6.1
+HP14,,PCR,1000,30.2,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-133,HP14|POC-133|Forward Primer FatP6.1
+HP15,,PCR,1000,33.2,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-134,HP15|POC-134|Forward Primer FatP6.1
+HP16,,PCR,1000,34.2,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-135,HP16|POC-135|Forward Primer FatP6.1
+HP17,,PCR,1000,32,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-176,HP17|POC-176|Forward Primer FatP6.1
+HP18,,PCR,1000,31.9,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-185,HP18|POC-185|Forward Primer FatP6.1
+HP19,,PCR,1000,33.7,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-186,HP19|POC-186|Forward Primer FatP6.1
+HP20,,PCR,1000,29.2,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-189,HP20|POC-189|Forward Primer FatP6.1
+HP21,,PCR,1000,28.5,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-191,HP21|POC-191|Forward Primer FatP6.1
+HP22,,PCR,1000,38.3,12.5,0.3,9.7,2,2,8,Forward Primer FatP6.1,POC-194,HP22|POC-194|Forward Primer FatP6.1
+HP23,,PCR,1000,38.3,12.5,0.3,9.7,2,2,8,Forward Primer FatP6.1,POC-195,HP23|POC-195|Forward Primer FatP6.1
+HP24,,PCR,1000,39.5,12.5,0.3,9.7,2,2,8,Forward Primer FatP6.1,POC-196,HP24|POC-196|Forward Primer FatP6.1
+HP25,,PCR,1000,32.2,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-198,HP25|POC-198|Forward Primer FatP6.1
+HP26,,PCR,1000,22.4,12.5,0.6,9.4,2,2,8,Forward Primer FatP6.1,POC-199,HP26|POC-199|Forward Primer FatP6.1
+HP27,,PCR,1000,28.8,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-200,HP27|POC-200|Forward Primer FatP6.1
+HP28,,PCR,1000,33,12.5,0.4,9.6,2,2,8,Forward Primer FatP6.1,POC-578,HP28|POC-578|Forward Primer FatP6.1
+HP29,,PCR,1000,31.1,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-152,HP29|POC-152|Reverse Primer RORF
+HP30,,PCR,1000,33.8,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-155,HP30|POC-155|Reverse Primer RORF
+HP31,,PCR,1000,30.8,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-157,HP31|POC-157|Reverse Primer RORF
+HP32,,PCR,1000,29.9,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-160,HP32|POC-160|Reverse Primer RORF
+HP33,,PCR,1000,38.1,12.5,0.3,9.7,2,2,8,Reverse Primer RORF,POC-163,HP33|POC-163|Reverse Primer RORF
+HP34,,PCR,1000,30.9,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-164,HP34|POC-164|Reverse Primer RORF
+HP35,,PCR,1000,30.7,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-170,HP35|POC-170|Reverse Primer RORF
+HP36,,PCR,1000,26.4,12.5,0.5,9.5,2,2,8,Reverse Primer RORF,POC-171,HP36|POC-171|Reverse Primer RORF
+HP37,,PCR,1000,30.8,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-172,HP37|POC-172|Reverse Primer RORF
+HP38,,PCR,1000,35.8,12.5,0.3,9.7,2,2,8,Reverse Primer RORF,POC-173,HP38|POC-173|Reverse Primer RORF
+HP39,,PCR,1000,31.1,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-182,HP39|POC-182|Reverse Primer RORF
+HP40,,PCR,1000,31.2,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-131,HP40|POC-131|Reverse Primer RORF
+HP41,,PCR,1000,35.5,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-132,HP41|POC-132|Reverse Primer RORF
+HP42,,PCR,1000,30.2,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-133,HP42|POC-133|Reverse Primer RORF
+HP43,,PCR,1000,33.2,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-134,HP43|POC-134|Reverse Primer RORF
+HP44,,PCR,1000,34.2,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-135,HP44|POC-135|Reverse Primer RORF
+HP45,,PCR,1000,32,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-176,HP45|POC-176|Reverse Primer RORF
+HP46,,PCR,1000,31.9,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-185,HP46|POC-185|Reverse Primer RORF
+HP47,,PCR,1000,33.7,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-186,HP47|POC-186|Reverse Primer RORF
+HP48,,PCR,1000,29.2,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-189,HP48|POC-189|Reverse Primer RORF
+HP49,,PCR,1000,28.5,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-191,HP49|POC-191|Reverse Primer RORF
+HP50,,PCR,1000,38.3,12.5,0.3,9.7,2,2,8,Reverse Primer RORF,POC-194,HP50|POC-194|Reverse Primer RORF
+HP51,,PCR,1000,38.3,12.5,0.3,9.7,2,2,8,Reverse Primer RORF,POC-195,HP51|POC-195|Reverse Primer RORF
+HP52,,PCR,1000,39.5,12.5,0.3,9.7,2,2,8,Reverse Primer RORF,POC-196,HP52|POC-196|Reverse Primer RORF
+HP53,,PCR,1000,32.2,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-198,HP53|POC-198|Reverse Primer RORF
+HP54,,PCR,1000,22.4,12.5,0.6,9.4,2,2,8,Reverse Primer RORF,POC-199,HP54|POC-199|Reverse Primer RORF
+HP55,,PCR,1000,28.8,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-200,HP55|POC-200|Reverse Primer RORF
+HP56,,PCR,1000,33,12.5,0.4,9.6,2,2,8,Reverse Primer RORF,POC-578,HP56|POC-578|Reverse Primer RORF
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
