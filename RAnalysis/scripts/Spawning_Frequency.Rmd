@@ -18,16 +18,16 @@ Set the species colors
 cols <- cbind.data.frame(Species = factor(c("P. tuahiniensis",
                                             "P. meandrina",
                                             "P. verrucosa",
-                                            #"P. grandis",
-                                            "P. cf. effusa"
-                                            #,"P. acuta"
+                                            "P. grandis",
+                                            "P. cf. effusa",
+                                            "P. acuta"
                                             )),
                          Color = c("#D55E00",
                                    "#0072B2",
                                    "#E69F00",
-                                  # "#56B4E9",
-                                   "#009E73"
-                                  #,"#e63946"
+                                   "#56B4E9",
+                                   "#009E73",
+                                   "#e63946"
                                   ))
 ```
 

@@ -1,0 +1,141 @@
+---
+title: "spawn_timing"
+author: "HM Putnam"
+date: "2024-12-11"
+output: html_document
+---
+
+Setup rmd
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Load libraries
+```{r}
+library(tidyverse)
+library(lubridate)
+library(ggplot2)
+library(dplyr)
+library(reshape2)
+
+```
+
+# plot timing of spawning after sunrise by species
+```{r}
+
+#read in data
+data <- read.csv("data/Pocillopora_spawning_timing.csv")
+
+#view data
+str(data)
+
+#assign species colors
+species_colors <- c("P. tuahiniensis" = "#D55E00",
+                    "P. meandrina" = "#0072B2",
+                    "P. verrucosa"= "#E69F00",
+                    "P. grandis" = "#56B4E9") 
+
+
+# Define the correct order of species
+species_order <- c("P. grandis", "P. meandrina", "P. verrucosa", "P. tuahiniensis")
+
+# Reorder the Species factor
+data <- data %>%
+  mutate(Species = factor(Species, levels = species_order))
+
+# Calculate mean Time.after.sunrise.min per species
+mean_sem_data <- data %>%
+  group_by(Species) %>%
+  summarise(
+    mean_time = mean(Time.after.sunrise.min),
+    sem_time = sd(Time.after.sunrise.min) / sqrt(n())
+  )
+
+#P. grandis - P. meandrina
+mean_sem_data$mean_time[1]
+mean_sem_data$mean_time[2]
+mean_sem_data$mean_time[1] - mean_sem_data$mean_time[2]
+
+#P. verrucosa - P. tuahiniensis
+mean_sem_data$mean_time[3]
+mean_sem_data$mean_time[4]
+mean_sem_data$mean_time[3] - mean_sem_data$mean_time[4]
+
+# Create the plot
+timing.plot <- ggplot(data, aes(x = Species, y = Time.after.sunrise.min, color = Species)) +
+  geom_jitter(size = 3, width = 0.1) +  # Plot the individual data points
+  labs(x = "Species", y = "Time After Sunrise (minutes)") +
+  ylim(0, 90) + #set the y limits
+  geom_hline(yintercept = 0, color = "black", linetype = "dashed") +  # Add horizontal line
+  geom_vline(xintercept = 2.5, color = "black", linetype = "solid") +  # Add vertical line 
+  geom_text(aes(x = 1.15, y = 88, label = "Full Moon"), color = "black", size = 5, hjust = 0) +
+  geom_text(aes(x = 3.15, y = 88, label = "New Moon"), color = "black", size = 5, hjust = 0) +
+  scale_color_manual(values = species_colors) +  # Manually set colors for each species
+  theme_bw() + #set theme
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, face = "italic"), legend.position = "none") +
+geom_point(data = mean_sem_data, aes(x = Species, y = mean_time), size = 2.5, shape = 18, fill = "black", color = "black")+   # Add mean points
+  geom_errorbar(data = mean_sem_data,inherit.aes = FALSE,
+                aes(x = Species, ymin = mean_time - sem_time, ymax = mean_time + sem_time),
+                width = 0.1, color = "black")
+
+# Print the plot
+timing.plot
+
+#save the plot
+ggsave("output/timing.plot.jpg", plot=timing.plot)
+
+```
+# test for difference in two species timing in new moon and two species timing in full moon
+```{r}
+#select new moon data
+New.mooon.data <- data%>%
+  filter(Moon=="new")
+
+#run a t-test between groups
+t.test(Time.after.sunrise.min~Species,data = New.mooon.data)
+
+#select full moon data
+Full.mooon.data <- data%>%
+  filter(Moon=="full")
+
+#run a t-test between groups
+t.test(Time.after.sunrise.min~Species,data = Full.mooon.data)
+
+```
+
+Plot lunar timing of spawing across all observations
+```{r}
+# load lunar timing data
+data2 <- read.csv("data/spawning_yes_no.csv")
+str(data2)
+
+# Convert the 'Spawn' column to a numeric code
+data2$Spawn_Code <- factor(data2$Spawn, levels = c("NDR", "No", "Yes"), labels = c(0, 1, 2))
+
+#order the data
+data2 <- data2 %>%
+  mutate(
+    Month = factor(Month, levels = c("Jan","Oct", "Nov", "Dec")),  # Custom month order
+    Year = factor(Year, levels = c(2022, 2023, 2024)))  # Custom year order
+
+# Create a new column for combination of species, year, month, moon, and day to use in the heatmap
+data2$Combination <- paste(data2$Species, data2$Year, data2$Month, data2$Moon, data2$Day, sep="_")
+
+# Reshape the data into a format suitable for heatmap
+data2_reshaped <- dcast(data2, Species + Month + Moon + Day ~ Combination, value.var = "Spawn_Code")
+
+# Create the heatmap using ggplot2
+spawn.time <- ggplot(data2, aes(x = Day, y = Species, fill = factor(Spawn_Code))) +
+  geom_tile() +
+  scale_fill_manual(values = c("white", "gray", "black"),
+                    labels = c("No Data Recorded", "No Spawning", "Spawning")) +
+  facet_grid(Moon ~ Year + Month) +
+  theme_minimal() +
+  labs(x = "Lunar Day", y = "Species", fill = "Spawn Status") +
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 0, hjust = 1),
+        axis.text.y = element_text(face = "italic"))  
+  
+ggsave("output/monthly.spawn.timing.jpg", spawn.time, height=4, width=9)
+```
+
